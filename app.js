@@ -30,7 +30,13 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
       const target = document.querySelector(id)
       if (target) {
         e.preventDefault()
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const headerHeight = document.querySelector('.site-header').offsetHeight
+        const targetPosition =
+          target.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({
+          top: targetPosition - headerHeight - 16, // 16px додатковий відступ
+          behavior: 'smooth',
+        })
         // Закривати меню після кліку на мобілці
         if (nav && nav.classList.contains('open')) {
           nav.classList.remove('open')

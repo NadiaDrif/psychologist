@@ -161,32 +161,6 @@ p {
 .nav a:hover {
   background: #e2efe9;
 }
-.burger {
-  display: none;
-  position: relative;
-  width: 44px;
-  height: 44px;
-  background-color: transparent;
-  border: 0;
-}
-.burger span {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 2px;
-  background: #2b4742;
-  border-radius: 2px;
-  transition: 0.25s;
-}
-.burger span:nth-child(1) {
-  top: 14px;
-}
-.burger span:nth-child(2) {
-  top: 21px;
-}
-.burger span:nth-child(3) {
-  top: 28px;
-}
 .hero {
   position: relative;
   isolation: isolate;
@@ -903,5 +877,41 @@ section {
   }
   .work-card .btn.primary {
     margin: auto;
+  }
+}
+
+#burger {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#burger span {
+  display: block;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+#burger.x span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 3px);
+}
+
+#burger.x span:nth-child(2) {
+  opacity: 0;
+}
+
+#burger.x span:nth-child(3) {
+  transform: rotate(-45deg) translate(12px, -11px);
+}
+
+@media (max-width: 990px) {
+  #burger {
+    display: flex;
   }
 }

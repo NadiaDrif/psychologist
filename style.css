@@ -3,7 +3,7 @@
 }
 html {
   scroll-behavior: smooth;
-  font-size: clamp(15px, 1.2vw, 18px);
+  font-size: clamp(18px, 1.2vw, 21px);
 }
 body {
   margin: 0;
@@ -337,15 +337,6 @@ section {
   background: rgba(30, 50, 46, 0.44);
   backdrop-filter: blur(6px);
 }
-.modal-panel {
-  position: relative;
-  width: min(520px, 92%);
-  background: #fff;
-  border-radius: 24px;
-  padding: 1.2rem;
-  border: 1px solid #dbeae3;
-  box-shadow: 0 30px 70px -30px rgba(28, 43, 40, 0.35);
-}
 .modal-close {
   position: absolute;
   right: 10px;
@@ -427,7 +418,7 @@ section {
   text-align: center;
   margin: auto;
   max-width: 700px;
-  margin-bottom: 32px;
+  margin-bottom: 70px;
   z-index: 10;
 }
 .cert-stage {
@@ -855,6 +846,7 @@ section {
     transition: transform 0.45s ease;
     display: flex;
     width: 100%;
+    gap: 0;
   }
 
   .cert-viewport {
@@ -913,5 +905,121 @@ section {
 @media (max-width: 990px) {
   #burger {
     display: flex;
+  }
+  .about figure img {
+    margin: 20px;
+  }
+}
+
+.modal-panel {
+  position: relative;
+  width: min(720px, 92%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 30px 70px -30px rgba(28, 43, 40, 0.35);
+  font-family: Montserrat, system-ui, -apple-system, 'Segoe UI', Roboto, Arial,
+    sans-serif;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--mint-400) transparent;
+}
+
+/* Стиль для скролбару в Chrome, Edge, Safari */
+.modal-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-panel::-webkit-scrollbar-thumb {
+  background-color: var(--mint-400);
+  border-radius: 4px;
+}
+
+.modal-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-panel h3 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 26px);
+  color: var(--mint-700);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-panel .btn {
+  margin: 30px auto 0;
+  display: flex;
+}
+
+.modal-panel ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.modal-panel ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.modal-panel ul li ul {
+  padding-left: 1rem;
+  margin-top: 0.3rem;
+}
+
+.modal-panel p {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  background: var(--mint-50);
+}
+
+.modal[aria-hidden='false'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal[aria-hidden='true'] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 50, 46, 0.44);
+  backdrop-filter: blur(6px);
+}
+
+#format .btn {
+  margin: 30px auto 40px;
+}
+@media (max-width: 680px) {
+  .modal-panel {
+    padding: 1rem;
   }
 }
